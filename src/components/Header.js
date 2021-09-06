@@ -1,5 +1,9 @@
 import React from 'react';
 import './Header.css';
+import SearchIcon from '@material-ui/icons/Search';
+import NotificationsActiveOutlinedIcon from '@material-ui/icons/NotificationsActiveOutlined';
+import Avatar from '@material-ui/core/Avatar';
+import image from '../statics/images/profilepic.jpg';
 
 function Header() {
     return (
@@ -8,14 +12,14 @@ function Header() {
                 <h3>Livine</h3>
             </div>
             <div className="right-part">
-                <div className="icon">search</div>
-                <div className="icon">notfcn</div>
+                <div className="icon"><SearchIcon /></div>
+                <div className="icon"><NotificationsActiveOutlinedIcon /></div>
                 <div className="user">
-                    <div><strong>Shawn Brooks</strong></div>
+                    <div>Shawn Brooks</div>
                     <div>Active <span><strong>&#709;</strong></span></div>
                 </div>
                 <div className="profile">
-                    <p>pic</p>
+                <Avatar alt="Remy Sharp" src={image} />
                 </div>
             </div>
         </div>

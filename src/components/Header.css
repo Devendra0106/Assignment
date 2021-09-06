@@ -1,12 +1,15 @@
 .header {
-  height: 50px;
-  padding: 10px;
+  height: 70px;
+  padding: 15px 40px 15px 30px;
   color: white;
   box-sizing: border-box;
-  background-color: rgb(85, 117, 106);
+  background-color: rgb(29, 29, 59);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #455060 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #272d3b33;
+  opacity: 1;
 }
 
 .right-part {
@@ -16,7 +19,7 @@
 }
 
 .right-part > div {
-  padding: 0 10px;
+  padding: 0 15px;
 }
 
 .right-part > .user {

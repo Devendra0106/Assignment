@@ -1,0 +1,23 @@
+.sidebar {
+  margin-top: 45px;
+  flex: 0.3;
+  width: 398px;
+  height: 406px;
+  background: #f4f4f4 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.sidebar > h5 {
+  padding: 10px 25px 0px 25px;
+}
+
+.sidebar .list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+}
+
+.sidebar .list .num {
+  color: #246bd6 !important;
+}
