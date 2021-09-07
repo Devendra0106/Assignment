@@ -1,84 +1,107 @@
 import React from 'react';
 import './Content.css';
-import { Input, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
+
+import { useFormik } from 'formik';
+
+ const SignupForm = () => {
+   // Note that we have to initialize ALL of fields with values. These
+   // could come from props, but since we don’t want to prefill this form,
+   // we just use an empty string. If we don’t do this, React will yell
+   // at us.
+   const formik = useFormik({
+     initialValues: {
+       firstName: '',
+       country: '',
+       date:'',
+       item:'',
+       quantity:'',
+       rate:''
+     },
+     onSubmit: values => {
+       alert(JSON.stringify(values, null, 2));
+     },
+   });
+   return (
+     <form onSubmit={formik.handleSubmit}>
+       <input
+         id="firstName"
+         name="firstName"
+         type="text"
+         placeholder="Supplier Name"
+         onChange={formik.handleChange}
+         value={formik.values.firstName}
+       />
+        <br/>
+       <select 
+            id="country" 
+            name="country"
+            onChange={formik.handleChange}
+            value={formik.values.country}
+       >
+            <option value="NA">Unit/Warehouse</option>
+            <option value="IND">IND</option>
+            <option value="AUS">AUS</option>
+            <option value="SA">SA</option>
+            <option value="ENG">ENG</option>
+            <option value="NZ">NZ</option>
+        </select>
+        <br/>
+       <input
+         id="date"
+         name="date"
+         type="date"
+         onChange={formik.handleChange}
+         value={formik.values.date}
+       />
+        <br/>
+        <select 
+            id="item" 
+            name="item"
+            onChange={formik.handleChange}
+            value={formik.values.item}
+       >
+            <option value="NA">Item</option>
+            <option value="Pen">Pen</option>
+            <option value="Pencil">Pencil</option>
+            <option value="Book">Book</option>
+        </select>
+        <select 
+            id="quantity" 
+            name="quantity"
+            onChange={formik.handleChange}
+            value={formik.values.quantity}
+       >
+            <option value="NA">Quantity</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <select 
+            id="rate" 
+            name="rate"
+            onChange={formik.handleChange}
+            value={formik.values.rate}
+       >
+            <option value="NA">Rate</option>
+            <option value="IND">20</option>
+            <option value="AUS">30</option>
+            <option value="SA">40</option>
+        </select>
+       <button style={{backgroundColor: 'blue', width: 267, height:40, border:'none', marginTop: 10}} type="submit">Submit</button>
+     </form>
+   );
+ };
 
 function Content() {
     return (
         <div className="content">
             <h3>Supplier Details</h3>
             <hr/>
-            <TextField id="outlined-basic" label="Supplier Name" variant="outlined" />
-            <br/>
-            <FormControl variant="outlined">
-                <InputLabel id="demo-simple-select-outlined-label">Country</InputLabel>
-                <br/>
-                <br/>
-                <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    label="Country"
-                >
-                    <MenuItem value="">
-                    <em>--Select--</em>
-                    </MenuItem>
-                    <MenuItem value={10}>India</MenuItem>
-                    <MenuItem value={20}>Australia</MenuItem>
-                    <MenuItem value={30}>SA</MenuItem>
-                </Select>
-            </FormControl>  
-            <br/>
-            <br/>
-            <TextField
-                id="date"
-                label="Birthday"
-                type="date"
-                defaultValue="2021-06-14"
-                InputLabelProps={{
-                shrink: true,
-                }}
-            />
-            <br/>
-            <br/>
-            <p>Array of select and text fields</p>
-            <TextField id="outlined-basic" label="Supplier Name" variant="outlined" />
-            <TextField id="outlined-basic" label="Supplier Name" variant="outlined" />
-            <TextField id="outlined-basic" label="Supplier Name" variant="outlined" />
-            <FormControl variant="outlined">
-                <InputLabel id="demo-simple-select-outlined-label">Country</InputLabel>
-                <br/>
-                <br/>
-                <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    label="Country"
-                >
-                    <MenuItem value="">
-                    <em>--Select--</em>
-                    </MenuItem>
-                    <MenuItem value={10}>India</MenuItem>
-                    <MenuItem value={20}>Australia</MenuItem>
-                    <MenuItem value={30}>SA</MenuItem>
-                </Select>
-            </FormControl>
-            <FormControl variant="outlined">
-                <InputLabel id="demo-simple-select-outlined-label">Country</InputLabel>
-                <br/>
-                <br/>
-                <Select
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    label="Country"
-                >
-                    <MenuItem value="">
-                    <em>--Select--</em>
-                    </MenuItem>
-                    <MenuItem value={10}>India</MenuItem>
-                    <MenuItem value={20}>Australia</MenuItem>
-                    <MenuItem value={30}>SA</MenuItem>
-                </Select>
-            </FormControl>
-        </div>
+            <SignupForm />
+        </div>    
     )
 }
 
